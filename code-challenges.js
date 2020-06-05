@@ -10,6 +10,16 @@ var people = [
 ]
 // Expected output example: "Ford Prefect is a hitchhiker." "Zaphod Beeblebrox is a president of the galaxy." "Arthus Dent is a radio employee."
 
+const nameCapitalizer = (arr) => {
+  return arr.map((obj) => {
+      obj.name = obj.name.split(' ').map((word) => {
+          return word[0].toUpperCase() + word.slice(1)
+      }).join(' ')
+      return obj.name + ' is a ' + obj.occupation
+  })
+}
+console.log(nameCapitalizer(people))
+
 
 
 
@@ -22,6 +32,13 @@ var testingArray2 = [5, "Hola", 43, -34, "greetings", true]
 // Expected output: [ 2, 1, -1 ]
 
 
+const remainderBy3 = (array) => {
+  let onlyNum = array.filter(value => typeof(value) === "number")
+  return onlyNum.map(value => value % 3)
+}
+
+  console.log(remainderBy3(testingArray1));
+  console.log(remainderBy3(testingArray2));
 
 
 
@@ -30,3 +47,9 @@ var testingArray2 = [5, "Hola", 43, -34, "greetings", true]
 var testingArray3 = [3, 7, "hi", 10, 3, "hello", 4, "hi"]
 var testingArray4 = [7, "hi", 3, 1, "hi", 4, "hello", 4, 7]
 // Expected output: [ 3, 7, "hi", 10, "hello", 4, 1 ]
+
+const uniqueValue = (array1, array2) => {
+  let newArr = array1.concat(array2)
+  return Array.from(new Set(newArr))
+}
+console.log(uniqueValue(testingArray3, testingArray4));
